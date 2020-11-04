@@ -1,0 +1,62 @@
+1- to achando que o guloso é melhor do que o algoritmo de coloraçao
+
+basicamente os dois sao iguais so que no coloraçao eu faço mais passos que o guloso deixando ele mais lento
+
+no coloraçao tem toda a conexao e saber quais sao as cores dos vizinhos, no guloso eu ja tenho uma funçao dizendo se na sala ja esta alocado um pedido ou nao, deixando muito mais facil o processo, ou seja, eu nao precisaria olhar se os outros pedidos tem cores ou nao, so precisaria perguntar se na sala já esta alocado
+
+
+2- rooms:
+	- alguns vem sem capacidade e sem nome(estou desconsiderando eles)
+
+3- lessons:
+	- alguns vem sem room e sem matricula(eu coloco room como -1 e matric como 0)
+	- esses pedidos 7665, 7666, 7668, 7669, 7670 nao tem vacancy, sem a capacidade nao tem como saber quanto que ele quer(desconsiderei)
+	- alguns lessons pede uma capacidade muito grande, as vezes nao tem sala pra aquela capacidade
+
+4- reservations.txt: 
+	- alterei os dados da matric no 1586 e coloquei -1
+	- no id 1814 ele ta faltando matric, vacancy e nome, entao eu desconsiderei
+
+
+5- Pedidos nao-alocados:
+	- descobri que é porque a capacidade do pedido é maior do que a capacidade das salas, ou seja, nao tem sala
+	ex: esse foi o teste que fiz para descobrir
+
+	writeAllocationToArchive(finalLessons)
+
+	#teste com os nao_alocados
+	#print(exemplo(finalLessons, rooms))
+
+	#imprimir tudo bonitinho
+	Output(rooms)
+
+
+#testando porque os nao_alocados nao estao alocando
+#descobri que é porque a cap do pedido é maior do que a capacidade das salas, ou seja, nao tem sala
+'''
+def exemplo(lessons, rooms):
+	tam = 0;
+	for lesson in lessons:	
+		
+		tem = False
+		for room in rooms:
+			if(room.bld == lesson.bld and room.roomType == lesson.roomType): #podemos colocar %
+				if(room.cap >= lesson.vacan):
+					tem = True
+					break
+		
+		if(tem == False):
+			tam += 1		
+
+	return tam
+'''
+
+
+
+O que esta faltando fazer:
+
+texto, escrever
+
+
+
+
