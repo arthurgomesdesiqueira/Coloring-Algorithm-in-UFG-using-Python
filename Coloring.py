@@ -21,8 +21,8 @@ def neighbor_colors(lesson, allLessons):
 	used_colors = []
 	for viz in lesson.connect:
 		if(allLessons[viz].room != -1):
-			used_colors.append(allLessons[viz].room)
-		
+			used_colors.append(allLessons[viz].room) #pega o id da sala
+
 	return used_colors
 
 
@@ -51,7 +51,7 @@ def assignLessonsToRoom(lesson, used_colors, rooms, lower_bound_rooms):
 	for x in range(position, len(rooms)):
 		room = rooms[x]
 		if(room.bld == lesson.bld and room.roomType == lesson.roomType and room.cap >= lesson.vacan): #podemos colocar %
-			if(room.name in used_colors): #verificando se o room já esta sendo usado pelos vizinhos
+			if(room.uniqueId in used_colors): #verificando se o room já esta sendo usado pelos vizinhos
 				continue
 			else:
 				#no codigo de coloraçao nao necessita dessa funçao, se fosse guloso precisaria
