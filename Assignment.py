@@ -17,6 +17,7 @@ dataRoomLen = 6 #tamanho do dado Room
 testingEnvironment = True
 
 
+
 # Alocacao dos pedidos nas salas
 def assignPerTime(firstTime):
 	rooms = readRoomsFromArchive()
@@ -42,9 +43,7 @@ def assignPerTime(firstTime):
 
 		finalLessons.append(lesson)
 
-
 	writeAllocationToArchive(finalLessons)
-
 
 	#imprimir tudo bonitinho
 	Output(rooms)

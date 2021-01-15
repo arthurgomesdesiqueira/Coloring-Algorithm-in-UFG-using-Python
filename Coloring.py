@@ -1,5 +1,6 @@
 import bisect
 
+
 #criando o grafo de coloracao
 #ligando todos os pedidos que tem choque de horario	
 def create_graph(allLessons):
@@ -28,6 +29,7 @@ def neighbor_colors(lesson, allLessons):
 
 #alocar os pedidos nas salas
 def assignLessonsToRoom(lesson, used_colors, rooms, lower_bound_rooms):
+	
 	'''
 	for room in rooms:
 		if(room.bld == lesson.bld and room.roomType == lesson.roomType and room.cap >= lesson.vacan): #podemos colocar %
@@ -62,6 +64,7 @@ def assignLessonsToRoom(lesson, used_colors, rooms, lower_bound_rooms):
 
 				room.assignClass(int(lesson.day), int(lesson.hour), lesson.uniqueId)
 				lesson.setRoom(room.uniqueId)
-	
+				break
+
 		elif(room.bld != lesson.bld and room.roomType != lesson.roomType):
 			break
