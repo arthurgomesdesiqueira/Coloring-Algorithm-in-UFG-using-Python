@@ -30,23 +30,6 @@ def neighbor_colors(lesson, allLessons):
 #alocar os pedidos nas salas
 def assignLessonsToRoom(lesson, used_colors, rooms, lower_bound_rooms):
 	
-	'''
-	for room in rooms:
-		if(room.bld == lesson.bld and room.roomType == lesson.roomType and room.cap >= lesson.vacan): #podemos colocar %
-			
-				if(room.name in used_colors): #verificando se o room já esta sendo usado pelos vizinhos
-					continue
-				else:
-					#no codigo de coloraçao nao necessita dessa funçao, se fosse guloso precisaria
-					#if(isRoomFullDayHour(lesson.day, lesson.hour) == True):
-
-					#pode ser que eu tenha que trocar o lesson.uniqueId
-					#pela posicao dentro do allLessons, no caso o indice
-
-					room.assignClass(int(lesson.day), int(lesson.hour), lesson.uniqueId)
-					lesson.setRoom(room.uniqueId)
-		
-	'''
 	#lower_bound do c++, ele faz uma busca binaria direto pro predio em log n
 	position = bisect.bisect_left(lower_bound_rooms, lesson.bld, 0, len(lower_bound_rooms))
 	
@@ -56,12 +39,6 @@ def assignLessonsToRoom(lesson, used_colors, rooms, lower_bound_rooms):
 			if(room.uniqueId in used_colors): #verificando se o room já esta sendo usado pelos vizinhos
 				continue
 			else:
-				#no codigo de coloraçao nao necessita dessa funçao, se fosse guloso precisaria
-				#if(isRoomFullDayHour(lesson.day, lesson.hour) == True):
-
-				#pode ser que eu tenha que trocar o lesson.uniqueId
-				#pela posicao dentro do allLessons, no caso o indice
-
 				room.assignClass(int(lesson.day), int(lesson.hour), lesson.uniqueId)
 				lesson.setRoom(room.uniqueId)
 				break

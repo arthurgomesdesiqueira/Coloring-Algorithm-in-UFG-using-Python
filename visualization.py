@@ -1,5 +1,4 @@
-
-#file constantes
+#arquivos constantes
 lessonsFileName = "Output/Lessons.txt"
 buildingsFileName = "SIDS/Buildings.txt"
 hoursFileName = "SIDS/Hours.txt"
@@ -20,7 +19,7 @@ tipo = {
 	3: "Ateliê"
 }
 	
-
+#cria um arquivo chamado Room.txt e deixa um visual mais elegante
 def Output(rooms):
 
 	buildings = readBuildings()
@@ -50,7 +49,7 @@ def Output(rooms):
 		
 	file.close()
 
-
+#le o arquivo lessons, que sao os pedidos
 def readLessons():
 	file = open(lessonsFileName)
 	file.readline()
@@ -65,7 +64,7 @@ def readLessons():
 	file.close()
 	return lessons
 
-
+#le o arquivo builds
 def readBuildings():
 	file = open(buildingsFileName)
 	file.readline()
@@ -77,6 +76,7 @@ def readBuildings():
 	file.close()
 	return buildings
 
+#le o arquivo hours
 def readHours():
 	file = open(hoursFileName)
 	file.readline()
@@ -89,6 +89,7 @@ def readHours():
 	file.close()
 	return hours	
 
+#le o arquivo reservation
 def readReservations():
 	file = open(reservationsFileName)
 	file.readline()

@@ -3,6 +3,7 @@ from Lesson import Lesson
 from Room import Room
 import Coloring
 from visualization import Output
+import time #time
 
 # arquivos
 roomsFileName = "SIDS/Rooms.txt"
@@ -26,11 +27,7 @@ def assignPerTime(firstTime):
 
 	#ordenando as salas
 	rooms.sort(key=lambda x: (x.bld, x.roomType, x.cap, x.name))
-	'''
-	for x, room in enumerate(rooms):
-		print(x, room.bld, room.roomType, room.cap, room.name)
-	'''
-
+	
 	Coloring.create_graph(allLessons)
 	
 	#busca binaria do predio pra ir mais rapido
@@ -45,7 +42,7 @@ def assignPerTime(firstTime):
 
 	writeAllocationToArchive(finalLessons)
 
-	#imprimir tudo bonitinho
+	#imprimir de uma forma bem mais visivel de entender
 	Output(rooms)
 
 
@@ -156,4 +153,9 @@ def writeAllocationToArchive(finalLessons):
 	print("Qtd nao alocada: ", naoAlocados)
 
 
+
+init = time.time()
 assignPerTime(testingEnvironment)
+
+fim = time.time()
+print("Tempo gasto: ", fim - init)

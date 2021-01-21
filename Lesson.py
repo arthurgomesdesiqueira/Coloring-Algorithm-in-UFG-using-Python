@@ -19,3 +19,4 @@ class Lesson:
 
 	def setRoom(self, room):
 		self.room = room
+		
