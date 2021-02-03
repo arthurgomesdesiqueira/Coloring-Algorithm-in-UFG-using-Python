@@ -19,10 +19,10 @@ def create_graph(allLessons):
 #pegando todas as cores(rooms) dos vizinhos 
 def neighbor_colors(lesson, allLessons):
 
-	used_colors = []
+	used_colors = set()
 	for viz in lesson.connect:
 		if(allLessons[viz].room != -1):
-			used_colors.append(allLessons[viz].room) #pega o id da sala
+			used_colors.add(allLessons[viz].room) #pega o id da sala
 
 	return used_colors
 
