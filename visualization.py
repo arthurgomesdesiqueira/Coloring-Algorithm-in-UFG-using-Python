@@ -1,4 +1,5 @@
-#arquivos constantes
+
+#file constantes
 lessonsFileName = "Output/Lessons.txt"
 buildingsFileName = "SIDS/Buildings.txt"
 hoursFileName = "SIDS/Hours.txt"
@@ -19,7 +20,7 @@ tipo = {
 	3: "Ateliê"
 }
 	
-#cria um arquivo chamado Room.txt e deixa um visual mais elegante
+
 def Output(rooms):
 
 	buildings = readBuildings()
@@ -29,7 +30,40 @@ def Output(rooms):
 
 	file = open(output, "w")
 		
-	for room in rooms:
+	for room in rooms:		
+		if(room.bld == '0'):
+			continue
+		line = "Predio: " + buildings[int(room.bld)] + "\n"
+		file.write(line)
+		line = "Sala: " + room.name + ", Capacidade: " + str(room.cap) + ", Tipo da Sala: " + tipo[int(room.roomType)] + "\n"
+		file.write(line)
+		for week in range(1, 7):
+			line = diasDaSemana[week] + "\n"
+			file.write(line)
+			for hour in range(1,18):
+				if(room.isRoomFullDayHour(week, hour) == True):
+					#retornei uma lista do lessons
+					#variavel = lessons[int(room.dayHour[week][hour])]
+					line = hours[hour] + ": " + " Temos uma materia aqui " + "\n"
+					file.write(line)
+				else:
+					line = hours[hour] + ": \n"
+					file.write(line)
+		
+	file.close()
+
+'''
+def Output(rooms):
+
+	buildings = readBuildings()
+	hours = readHours()
+	reservations = readReservations()
+	lessons = readLessons()
+
+	file = open(output, "w")
+		
+	for room in rooms:		
+			
 		line = "Predio: " + buildings[int(room.bld)] + "\n"
 		file.write(line)
 		line = "Sala: " + room.name + ", Capacidade: " + str(room.cap) + ", Tipo da Sala: " + tipo[int(room.roomType)] + "\n"
@@ -48,8 +82,8 @@ def Output(rooms):
 					file.write(line)
 		
 	file.close()
+'''
 
-#le o arquivo lessons, que sao os pedidos
 def readLessons():
 	file = open(lessonsFileName)
 	file.readline()
@@ -64,7 +98,7 @@ def readLessons():
 	file.close()
 	return lessons
 
-#le o arquivo builds
+
 def readBuildings():
 	file = open(buildingsFileName)
 	file.readline()
@@ -76,7 +110,6 @@ def readBuildings():
 	file.close()
 	return buildings
 
-#le o arquivo hours
 def readHours():
 	file = open(hoursFileName)
 	file.readline()
@@ -89,7 +122,6 @@ def readHours():
 	file.close()
 	return hours	
 
-#le o arquivo reservation
 def readReservations():
 	file = open(reservationsFileName)
 	file.readline()
