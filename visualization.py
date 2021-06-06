@@ -52,37 +52,6 @@ def Output(rooms):
 		
 	file.close()
 
-'''
-def Output(rooms):
-
-	buildings = readBuildings()
-	hours = readHours()
-	reservations = readReservations()
-	lessons = readLessons()
-
-	file = open(output, "w")
-		
-	for room in rooms:		
-			
-		line = "Predio: " + buildings[int(room.bld)] + "\n"
-		file.write(line)
-		line = "Sala: " + room.name + ", Capacidade: " + str(room.cap) + ", Tipo da Sala: " + tipo[int(room.roomType)] + "\n"
-		file.write(line)
-		for week in range(1, 7):
-			line = diasDaSemana[week] + "\n"
-			file.write(line)
-			for hour in range(1,18):
-				if(room.isRoomFullDayHour(week, hour) == True):
-					#retornei uma lista do lessons
-					variavel = lessons[int(room.dayHour[week][hour])]
-					line = hours[hour] + ": " + reservations[int(variavel[1])] + "   cap: " + variavel[9] + "\n"
-					file.write(line)
-				else:
-					line = hours[hour] + ": \n"
-					file.write(line)
-		
-	file.close()
-'''
 
 def readLessons():
 	file = open(lessonsFileName)
